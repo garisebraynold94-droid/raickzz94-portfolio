@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raickzz94 | Digital Artist & Graphic Designer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#080c14',
+                        darkCard: '#111827',
+                        accentCyan: '#00f2fe',
+                        accentPurple: '#9d4edd',
+                        accentPink: '#f72585',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Glassmorphism Styles */
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .light .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .glass-nav {
+            background: rgba(8, 12, 20, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .light .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080c14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f2fe;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-100 font-sans min-h-screen overflow-x-hidden selection:bg-cyan-500 selection:text-black transition-colors duration-300 dark:bg-darkBg dark:text-slate-100 light:bg-slate-50 light:text-slate-900">
+
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo (Custom Vector Stylized Monogram) -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="relative w-11 h-11 flex items-center justify-center rounded-xl bg-slate-900 border border-slate-800 shadow-xl group-hover:border-cyan-400/50 transition-all duration-300 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 via-purple-600/20 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <!-- Sleek Custom Stylized 'R' Vector SVG -->
+                        <svg class="w-7 h-7 drop-shadow-[0_0_8px_rgba(0,242,254,0.6)]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#00f2fe" />
+                                    <stop offset="50%" stop-color="#9d4edd" />
+                                    <stop offset="100%" stop-color="#f72585" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Angular Geometric 'R' Monogram -->
+                            <path d="M22 15 H56 C74 15, 84 25, 84 40 C84 53, 75 62, 58 64 L82 85 H60 L40 64 H38 V85 H22 V15 Z M38 31 V48 H54 C63 48, 68 44, 68 39.5 C68 35, 63 31, 54 31 H38 Z" fill="url(#logoGrad)" />
+                        </svg>
+                    </div>
+                    <span class="text-xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white via-cyan-200 to-cyan-400 group-hover:text-cyan-400 transition-colors">
+                        RAICKZZ94
+                    </span>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-sm font-medium text-slate-300 hover:text-accentCyan transition-colors">Home</a>
+                    <a href="#gallery" class="text-sm font-medium text-slate-300 hover:text-accentCyan transition-colors">Portfolio</a>
+                    <a href="#upload" class="text-sm font-medium text-slate-300 hover:text-accentCyan transition-colors">Upload Art</a>
+                    <a href="#about" class="text-sm font-medium text-slate-300 hover:text-accentCyan transition-colors">About</a>
+                    <a href="#contact" class="text-sm font-medium text-slate-300 hover:text-accentCyan transition-colors">Contact</a>
+                </div>
+
+                <!-- Theme Mode & Action Controls -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button id="themeToggleBtn" onclick="toggleThemeMode()" class="p-2.5 rounded-xl glass-panel text-slate-300 hover:text-cyan-400 hover:border-cyan-400/50 transition-all duration-300" title="Toggle Theme">
+                        <i class="fa-solid fa-moon text-lg" id="themeIcon"></i>
+                    </button>
+                    <a href="#contact" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-sm hover:from-cyan-400 hover:to-blue-500 hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300">
+                        Get In Touch
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center space-x-3">
+                    <button onclick="toggleThemeMode()" class="p-2 rounded-lg text-slate-300 hover:text-white">
+                        <i class="fa-solid fa-moon" id="themeIconMobile"></i>
+                    </button>
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="p-2 rounded-lg text-slate-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden glass-panel border-t border-slate-800/80 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" onclick="closeMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50">Home</a>
+            <a href="#gallery" onclick="closeMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50">Portfolio</a>
+            <a href="#upload" onclick="closeMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50">Upload Art</a>
+            <a href="#about" onclick="closeMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50">About</a>
+            <a href="#contact" onclick="closeMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home" class="relative pt-36 pb-24 md:pt-48 md:pb-32 overflow-hidden flex items-center min-h-screen">
+        <div class="absolute top-1/4 left-10 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none animate-pulse-slow"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl pointer-events-none animate-pulse-slow" style="animation-delay: 2s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full glass-panel border-cyan-500/30 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                        <span>Open For Custom Design Commissions</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight">
+                        High-Impact <br class="hidden sm:inline"/>
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500">
+                            Digital Art & Jersey Concepts
+                        </span>
+                    </h1>
+
+                    <p class="text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Welcome to <strong class="text-white">Raickzz94</strong>'s official showcase. Highlighting custom athletic kit concepts, surreal photo edits, vector badges, and visual branding.
+                    </p>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#gallery" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 text-slate-950 font-extrabold text-center hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-1">
+                            Explore Portfolio <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                        <a href="#upload" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel text-white font-semibold text-center hover:border-cyan-400/50 hover:bg-slate-800/50 transition-all duration-300">
+                            Test Custom Upload <i class="fa-solid fa-cloud-arrow-up ml-2 text-cyan-400"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative group w-full max-w-md">
+                        <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-500 blur-lg opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                        
+                        <div class="relative glass-panel rounded-2xl p-4 overflow-hidden">
+                            <div class="relative rounded-xl overflow-hidden aspect-[4/5] bg-slate-900">
+                                <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1000&auto=format&fit=crop" 
+                                     alt="Featured Jersey Design" 
+                                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                                
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                                
+                                <div class="absolute bottom-4 left-4 right-4 p-4 glass-panel rounded-xl">
+                                    <span class="text-xs font-mono text-cyan-400 font-semibold uppercase">Featured Concept</span>
+                                    <h3 class="text-lg font-bold text-white mt-0.5">CyberKit Pro Jersey</h3>
+                                    <p class="text-xs text-slate-400 mt-1">Sports Graphics & Jersey Kit Design</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-20 relative bg-slate-950/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+                <span class="text-cyan-400 font-mono text-sm uppercase tracking-widest font-semibold">// Interactive Gallery</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white">Portfolio Works</h2>
+                <p class="text-slate-400">Filter by design type or click any piece to inspect in high resolution.</p>
+            </div>
+
+            <!-- Gallery Category Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+                <button onclick="filterGallery('all', event)" class="filter-btn active px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/20">All Works</button>
+                <button onclick="filterGallery('jerseys', event)" class="filter-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 glass-panel text-slate-300 hover:text-white hover:border-cyan-500/50">Sports Jerseys</button>
+                <button onclick="filterGallery('digital-art', event)" class="filter-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 glass-panel text-slate-300 hover:text-white hover:border-cyan-500/50">Digital Art</button>
+                <button onclick="filterGallery('edits', event)" class="filter-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 glass-panel text-slate-300 hover:text-white hover:border-cyan-500/50">Edits & Composites</button>
+                <button onclick="filterGallery('logos', event)" class="filter-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 glass-panel text-slate-300 hover:text-white hover:border-cyan-500/50">Logos & Branding</button>
+            </div>
+
+            <!-- Dynamic Gallery Grid Container -->
+            <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Rendered dynamically via JavaScript -->
+            </div>
+
+        </div>
+    </section>
+
+    <section id="upload" class="py-20 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel rounded-3xl p-8 sm:p-12 relative overflow-hidden border border-cyan-500/20">
+                <div class="text-center max-w-2xl mx-auto space-y-3 mb-8">
+                    <span class="text-purple-400 font-mono text-xs uppercase tracking-widest font-semibold">// Interactive Upload Studio</span>
+                    <h2 class="text-3xl font-extrabold text-white">Preview Your Artwork Live</h2>
+                    <p class="text-slate-400 text-sm">Test custom artwork or design drafts by uploading image files directly into the gallery view below.</p>
+                </div>
+
+                <div class="max-w-xl mx-auto">
+                    <div id="dropZone" onclick="document.getElementById('artFileInput').click()" class="border-2 border-dashed border-slate-700 hover:border-cyan-400 rounded-2xl p-8 text-center transition-all cursor-pointer bg-slate-900/40 hover:bg-slate-900/80 group">
+                        <input type="file" id="artFileInput" accept="image/*" class="hidden" onchange="handleFileSelect(event)">
+                        <div class="w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:bg-cyan-500/20 group-hover:text-cyan-400 text-slate-400 transition-all">
+                            <i class="fa-solid fa-cloud-arrow-up text-2xl"></i>
+                        </div>
+                        <h4 class="text-white font-semibold text-base mb-1">Click to Upload or Drag Image</h4>
+                        <p class="text-xs text-slate-400">PNG, JPG, WEBP or GIF supported</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                        <input type="text" id="customTitle" placeholder="Title (e.g. Neon Kit Concept)" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400">
+                        <select id="customCategory" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-cyan-400">
+                            <option value="jerseys">Sports Jerseys</option>
+                            <option value="digital-art">Digital Art</option>
+                            <option value="edits">Edits & Composites</option>
+                            <option value="logos">Logos & Branding</option>
+                        </select>
+                    </div>
+
+                    <button onclick="addCustomArtwork()" class="w-full mt-4 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-slate-950 font-bold text-sm hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+                        Add to Live Portfolio Preview
+                    </button>
+                    
+                    <div id="uploadFeedback" class="mt-3 text-center text-xs text-cyan-400 hidden font-mono"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 relative bg-slate-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5">
+                    <div class="relative glass-panel rounded-3xl p-4 overflow-hidden border border-slate-800">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop" 
+                             alt="Raickzz94 Creative Studio" 
+                             class="w-full rounded-2xl object-cover aspect-square">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-cyan-400 font-mono text-sm uppercase tracking-widest font-semibold">// About The Creator</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Visual Identity & Jersey Design Specialist</h2>
+                    <p class="text-slate-300 leading-relaxed font-light">
+                        I'm <strong class="text-white">Raickzz94</strong>, specializing in athletic team jersey graphics, futuristic composite edits, and high-energy digital brand identities.
+                    </p>
+
+                    <div class="pt-2">
+                        <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-3">Core Specialties</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3.5 py-1.5 rounded-lg glass-panel text-xs font-medium text-cyan-300 border border-cyan-500/20">Jersey Kit Mockups</span>
+                            <span class="px-3.5 py-1.5 rounded-lg glass-panel text-xs font-medium text-purple-300 border border-purple-500/20">Photo Compositing</span>
+                            <span class="px-3.5 py-1.5 rounded-lg glass-panel text-xs font-medium text-pink-300 border border-pink-500/20">Vector Logos</span>
+                            <span class="px-3.5 py-1.5 rounded-lg glass-panel text-xs font-medium text-cyan-300 border border-cyan-500/20">Digital Edits</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Info & Direct Email -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-cyan-400 font-mono text-sm uppercase tracking-widest font-semibold">// Direct Contact</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Let's Create Together</h2>
+                    <p class="text-slate-400 font-light text-sm">
+                        Have a project or jersey concept in mind? Get in touch directly via email or send a message using the form.
+                    </p>
+
+                    <!-- Primary Email Badge Box -->
+                    <div class="glass-panel p-5 rounded-2xl border border-cyan-500/30 space-y-3">
+                        <div class="flex items-center space-x-3 text-cyan-400 font-mono text-xs uppercase tracking-wider">
+                            <i class="fa-solid fa-envelope text-base"></i>
+                            <span>Primary Email Address</span>
+                        </div>
+                        <div class="text-white font-semibold text-lg break-all select-all">
+                            garisebraynold94@gmail.com
+                        </div>
+                        <div class="flex items-center space-x-3 pt-2">
+                            <a href="mailto:garisebraynold94@gmail.com" class="px-4 py-2 rounded-lg bg-cyan-500/20 border border-cyan-500/50 text-cyan-300 text-xs font-bold hover:bg-cyan-500 hover:text-black transition-all">
+                                <i class="fa-solid fa-paper-plane mr-1.5"></i> Open Email App
+                            </a>
+                            <button onclick="copyEmailToClipboard()" class="px-4 py-2 rounded-lg glass-panel text-slate-300 hover:text-white text-xs font-medium transition-all">
+                                <i class="fa-solid fa-copy mr-1.5"></i> Copy Address
+                            </button>
+                        </div>
+                        <p id="copyNotice" class="text-[11px] text-emerald-400 font-mono hidden">✓ Copied email to clipboard!</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <h4 class="text-xs font-mono uppercase text-slate-400">Connect Online</h4>
+                        <div class="flex items-center space-x-3">
+                            <a href="#" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-400 transition-all">
+                                <i class="fa-brands fa-instagram text-lg"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-400 transition-all">
+                                <i class="fa-brands fa-x-twitter text-lg"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-400 transition-all">
+                                <i class="fa-brands fa-behance text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Message Form -->
+                <div class="lg:col-span-7">
+                    <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-800 relative">
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-xs font-mono uppercase text-slate-300 mb-2">Name</label>
+                                    <input type="text" required placeholder="Your Name" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-400">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-mono uppercase text-slate-300 mb-2">Your Email</label>
+                                    <input type="email" required placeholder="email@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-400">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono uppercase text-slate-300 mb-2">Message</label>
+                                <textarea rows="4" required placeholder="Project details or design ideas..." class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-400"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 text-slate-950 font-black text-sm hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300">
+                                Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                        <div id="formSuccessMsg" class="hidden mt-4 p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-center text-sm font-medium">
+                            <i class="fa-solid fa-circle-check mr-2"></i> Message sent! We will reply to your email shortly.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 border-t border-slate-800/80 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <!-- Footer Mini Monogram -->
+                <svg class="w-5 h-5" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 15 H56 C74 15, 84 25, 84 40 C84 53, 75 62, 58 64 L82 85 H60 L40 64 H38 V85 H22 V15 Z M38 31 V48 H54 C63 48, 68 44, 68 39.5 C68 35, 63 31, 54 31 H38 Z" fill="#00f2fe" />
+                </svg>
+                <span class="text-sm text-slate-400 font-semibold">Raickzz94 Portfolio</span>
+            </div>
+            <div class="text-xs text-slate-500">
+                Contact: <a href="mailto:garisebraynold94@gmail.com" class="text-slate-400 hover:text-cyan-400 underline">garisebraynold94@gmail.com</a>
+            </div>
+            <div class="text-xs text-slate-500">
+                &copy; All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-slate-400 hover:text-white text-3xl focus:outline-none">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl w-full glass-panel rounded-2xl overflow-hidden border border-slate-700/50 flex flex-col md:flex-row">
+            <div class="md:w-2/3 bg-black flex items-center justify-center max-h-[70vh]">
+                <img id="lightboxImg" src="" alt="Preview" class="max-h-[70vh] w-auto object-contain">
+            </div>
+            <div class="md:w-1/3 p-6 flex flex-col justify-between bg-slate-900/90">
+                <div>
+                    <span id="lightboxCategory" class="text-xs font-mono text-cyan-400 uppercase font-semibold">Category</span>
+                    <h3 id="lightboxTitle" class="text-2xl font-bold text-white mt-1">Title</h3>
+                    <p id="lightboxDesc" class="text-xs text-slate-400 mt-3 leading-relaxed">Design concept description.</p>
+                </div>
+                <div class="pt-6">
+                    <button onclick="closeLightbox()" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold uppercase tracking-wider transition-colors">
+                        Close Preview
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let portfolioItems = [
+            {
+                id: 1,
+                title: "CyberKit eSports Jersey",
+                category: "jerseys",
+                categoryLabel: "Sports Jerseys",
+                image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=800&auto=format&fit=crop",
+                desc: "Custom athletic eSports team jersey kit with neon gradient highlights."
+            },
+            {
+                id: 2,
+                title: "Neon City Photo Composite",
+                category: "digital-art",
+                categoryLabel: "Digital Art",
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
+                desc: "Surreal lighting manipulation and digital visual artwork."
+            },
+            {
+                id: 3,
+                title: "Velocity Football Concept",
+                category: "jerseys",
+                categoryLabel: "Sports Jerseys",
+                image: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?q=80&w=800&auto=format&fit=crop",
+                desc: "Modern football kit draft featuring high-contrast geometric prints."
+            },
+            {
+                id: 4,
+                title: "Retrofuturistic Color Edit",
+                category: "edits",
+                categoryLabel: "Edits & Composites",
+                image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=800&auto=format&fit=crop",
+                desc: "Vaporwave-inspired photo edit and gradient color grading."
+            },
+            {
+                id: 5,
+                title: "Apex Mascot Logo Emblem",
+                category: "logos",
+                categoryLabel: "Logos & Branding",
+                image: "https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=800&auto=format&fit=crop",
+                desc: "Clean gaming logo mark and vector mascot emblem."
+            }
+        ];
+
+        let uploadedImageData = null;
+
+        function renderGallery(filter = 'all') {
+            const grid = document.getElementById('galleryGrid');
+            grid.innerHTML = '';
+
+            const filtered = filter === 'all' 
+                ? portfolioItems 
+                : portfolioItems.filter(item => item.category === filter);
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "group glass-panel rounded-2xl overflow-hidden cursor-pointer hover:border-cyan-500/50 transition-all duration-300 transform hover:-translate-y-2";
+                card.onclick = () => openLightbox(item);
+
+                card.innerHTML = `
+                    <div class="relative aspect-[4/3] bg-slate-900 overflow-hidden">
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-[10px] font-mono text-cyan-400 uppercase tracking-widest font-bold">${item.categoryLabel}</span>
+                        <h3 class="text-lg font-bold text-white mt-1 group-hover:text-cyan-300 transition-colors">${item.title}</h3>
+                        <p class="text-xs text-slate-400 mt-1">${item.desc}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterGallery(category, e) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-cyan-500', 'text-slate-950', 'shadow-lg', 'shadow-cyan-500/20');
+                btn.classList.add('glass-panel', 'text-slate-300');
+            });
+
+            if(e && e.target) {
+                e.target.classList.remove('glass-panel', 'text-slate-300');
+                e.target.classList.add('bg-cyan-500', 'text-slate-950', 'shadow-lg', 'shadow-cyan-500/20');
+            }
+
+            renderGallery(category);
+        }
+
+        function openLightbox(item) {
+            document.getElementById('lightboxImg').src = item.image;
+            document.getElementById('lightboxCategory').innerText = item.categoryLabel;
+            document.getElementById('lightboxTitle').innerText = item.title;
+            document.getElementById('lightboxDesc').innerText = item.desc;
+            document.getElementById('lightboxModal').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').classList.add('hidden');
+        }
+
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(evt) {
+                    uploadedImageData = evt.target.result;
+                    const feedback = document.getElementById('uploadFeedback');
+                    feedback.innerText = "✓ Image ready! Click button below to add to gallery.";
+                    feedback.classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function addCustomArtwork() {
+            if (!uploadedImageData) {
+                alert("Please select an image file first!");
+                return;
+            }
+
+            const title = document.getElementById('customTitle').value.trim() || "Custom Artwork Upload";
+            const category = document.getElementById('customCategory').value;
+
+            const categoryLabels = {
+                'jerseys': 'Sports Jerseys',
+                'digital-art': 'Digital Art',
+                'edits': 'Edits & Composites',
+                'logos': 'Logos & Branding'
+            };
+
+            portfolioItems.unshift({
+                id: Date.now(),
+                title: title,
+                category: category,
+                categoryLabel: categoryLabels[category] || 'Custom',
+                image: uploadedImageData,
+                desc: "User uploaded image previewed in gallery."
+            });
+
+            renderGallery('all');
+            document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+            uploadedImageData = null;
+            document.getElementById('uploadFeedback').innerText = "✓ Added to gallery preview!";
+        }
+
+        function copyEmailToClipboard() {
+            const email = "garisebraynold94@gmail.com";
+            const dummy = document.createElement("input");
+            document.body.appendChild(dummy);
+            dummy.value = email;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+
+            const notice = document.getElementById('copyNotice');
+            notice.classList.remove('hidden');
+            setTimeout(() => {
+                notice.classList.add('hidden');
+            }, 3000);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.add('hidden');
+        }
+
+        function toggleThemeMode() {
+            const html = document.documentElement;
+            html.classList.toggle('dark');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            document.getElementById('formSuccessMsg').classList.remove('hidden');
+            e.target.reset();
+        }
+
+        window.onload = function() {
+            renderGallery('all');
+        };
+    </script>
+</body>
+</html>
